@@ -1952,9 +1952,10 @@ body {
 
 .saas-mockup__header {
   background: rgba(255, 255, 255, 0.03);
-  padding: 8px 12px;
+  padding: 10px 14px;
   display: flex;
-  gap: 6px;
+  align-items: center;
+  gap: 8px;
   border-bottom: 1px solid var(--border-glass);
 }
 
@@ -1963,192 +1964,396 @@ body {
   height: 10px;
   border-radius: 50%;
 }
-
 .saas-mockup__dot--red { background: #ff5f56; }
 .saas-mockup__dot--yellow { background: #ffbd2e; }
 .saas-mockup__dot--green { background: #27c93f; }
 
+.saas-mockup__title {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  margin-left: auto;
+  font-weight: 500;
+}
+
 .saas-mockup__body {
-  padding: 16px;
-  height: 160px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 200px;
   position: relative;
   overflow: hidden;
 }
 
-/* 1. Automatizaciones Mockup (Nodes) */
-.mockup-nodes {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  position: relative;
-}
-.mockup-node {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  background: rgba(99, 233, 245, 0.1);
-  border: 1px solid var(--cyan);
+/* 1. Automatizaciones Mockup */
+.saas-mockup__body--auto {
+  background: radial-gradient(circle at center, rgba(99,233,245,0.05) 0%, transparent 70%);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
-  box-shadow: 0 0 10px rgba(99, 233, 245, 0.2);
-}
-.mockup-node svg {
-  width: 20px;
-  height: 20px;
-  stroke: var(--cyan);
-}
-.mockup-node--active {
-  animation: node-pulse 2s infinite;
-}
-.mockup-line {
-  position: absolute;
-  top: 50%;
-  left: 20px;
-  right: 20px;
-  height: 2px;
-  background: rgba(99, 233, 245, 0.2);
-  z-index: 1;
-  transform: translateY(-50%);
-}
-.mockup-line-active {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 50%;
-  background: var(--cyan);
-  animation: line-flow 2s infinite;
-}
-@keyframes node-pulse {
-  0%, 100% { box-shadow: 0 0 10px rgba(99, 233, 245, 0.2); transform: scale(1); }
-  50% { box-shadow: 0 0 20px rgba(99, 233, 245, 0.6); transform: scale(1.05); }
-}
-@keyframes line-flow {
-  0% { left: 0; width: 0; opacity: 1; }
-  50% { left: 0; width: 100%; opacity: 1; }
-  100% { left: 100%; width: 0; opacity: 0; }
 }
 
-/* 2. Agentes Autónomos Mockup (Dashboard) */
-.mockup-dash {
-  width: 100%;
-  height: 100%;
+.mockup-nodes {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.mockup-dash-header {
-  display: flex;
-  gap: 10px;
-}
-.mockup-dash-card {
-  flex: 1;
-  height: 30px;
-  background: rgba(167, 139, 250, 0.1);
-  border-radius: 6px;
-  border: 1px solid rgba(167, 139, 250, 0.2);
-  animation: dash-pulse 3s infinite alternate;
-}
-.mockup-dash-body {
-  flex: 1;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 6px;
-  padding: 10px;
-  display: flex;
-  align-items: flex-end;
-  gap: 8px;
-}
-.mockup-dash-bar {
-  flex: 1;
-  background: var(--accent-violet);
-  border-radius: 4px 4px 0 0;
-  opacity: 0.8;
-  animation: bar-grow 2s infinite alternate;
-  transform-origin: bottom;
-}
-.mockup-dash-bar:nth-child(1) { height: 40%; animation-delay: 0s; }
-.mockup-dash-bar:nth-child(2) { height: 70%; animation-delay: 0.2s; }
-.mockup-dash-bar:nth-child(3) { height: 50%; animation-delay: 0.4s; }
-.mockup-dash-bar:nth-child(4) { height: 90%; animation-delay: 0.6s; }
-.mockup-dash-bar:nth-child(5) { height: 60%; animation-delay: 0.8s; }
-@keyframes dash-pulse {
-  0% { opacity: 0.6; }
-  100% { opacity: 1; }
-}
-@keyframes bar-grow {
-  0% { transform: scaleY(0.8); }
-  100% { transform: scaleY(1.1); }
+  align-items: center;
+  justify-content: space-between;
+  width: 85%;
+  position: relative;
 }
 
-/* 3. Chatbots Mockup (WhatsApp) */
-.mockup-chat {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.mockup-msg {
-  max-width: 80%;
-  padding: 8px 12px;
-  border-radius: 12px;
-  font-size: 0.7rem;
-  opacity: 0;
-  animation: msg-appear 4s infinite;
-}
-.mockup-msg--left {
-  align-self: flex-start;
-  background: rgba(255, 255, 255, 0.05);
-  border-bottom-left-radius: 2px;
-}
-.mockup-msg--right {
-  align-self: flex-end;
-  background: rgba(16, 185, 129, 0.2);
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  color: #fff;
-  border-bottom-right-radius: 2px;
-}
-.mockup-msg:nth-child(1) { animation-delay: 0s; }
-.mockup-msg:nth-child(2) { animation-delay: 1s; }
-.mockup-msg:nth-child(3) { animation-delay: 2s; }
-@keyframes msg-appear {
-  0%, 5% { opacity: 0; transform: translateY(10px); }
-  10%, 80% { opacity: 1; transform: translateY(0); }
-  90%, 100% { opacity: 0; transform: translateY(-10px); }
-}
-.mockup-typing {
-  display: flex;
-  gap: 3px;
-  padding: 4px;
-}
-.mockup-typing span {
-  width: 4px;
-  height: 4px;
-  background: var(--text-muted);
-  border-radius: 50%;
-  animation: typing 1.4s infinite;
-}
-.mockup-typing span:nth-child(2) { animation-delay: 0.2s; }
-.mockup-typing span:nth-child(3) { animation-delay: 0.4s; }
-@keyframes typing {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
-}
-
-/* 4. Llamadas Mockup (Waveform) */
-.mockup-call {
+.mockup-node-group {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
+  z-index: 2;
+  opacity: 0;
+  animation: node-fade-in 0.5s forwards;
 }
+
+.mockup-node {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(10, 16, 32, 0.9);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.mockup-node::after {
+  content: '';
+  position: absolute;
+  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  animation: node-pulse-border 2s infinite;
+}
+
+.mockup-node--lead::after { border-color: rgba(99, 233, 245, 0.5); }
+.mockup-node--crm::after { border-color: rgba(167, 139, 250, 0.5); animation-delay: 0.5s; }
+.mockup-node--msg::after { border-color: rgba(16, 185, 129, 0.5); animation-delay: 1s; }
+
+.mockup-node svg { width: 22px; height: 22px; }
+.mockup-node--lead svg { stroke: var(--cyan); }
+.mockup-node--crm svg { stroke: var(--accent-violet); }
+.mockup-node--msg svg { stroke: var(--accent-emerald); }
+
+.mockup-node-label {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.mockup-connection {
+  flex: 1;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.05);
+  margin: 0 -10px;
+  margin-top: -22px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.mockup-connection-fill {
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  transform: translateX(-100%);
+  animation: connection-flow 2s infinite;
+}
+
+.mockup-data-particle {
+  position: absolute;
+  top: calc(50% - 22px);
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #fff, 0 0 20px var(--cyan);
+  z-index: 3;
+  animation: particle-travel 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes node-fade-in {
+  to { opacity: 1; }
+}
+@keyframes node-pulse-border {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 0; }
+}
+@keyframes connection-flow {
+  100% { transform: translateX(100%); }
+}
+@keyframes particle-travel {
+  0% { left: 0; opacity: 0; transform: scale(0.5); }
+  5% { opacity: 1; transform: scale(1); }
+  45% { left: 50%; }
+  90% { left: 100%; opacity: 1; transform: scale(1); }
+  95% { opacity: 0; transform: scale(0.5); }
+  100% { left: 100%; opacity: 0; }
+}
+
+/* 2. Agentes Autónomos Mockup */
+.saas-mockup__body--agent {
+  background: #000;
+  padding: 16px;
+  font-family: 'Space Grotesk', monospace;
+}
+
+.mockup-terminal {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.mockup-term-line {
+  opacity: 0;
+  animation: term-seq 10s infinite;
+}
+.mockup-term-line:nth-child(1) { animation-delay: 0s; }
+.mockup-term-line:nth-child(2) { animation-delay: 1.5s; }
+.mockup-term-line:nth-child(3) { animation-delay: 3.5s; }
+.mockup-term-line:nth-child(4) { animation-delay: 5s; }
+.mockup-term-line:nth-child(5) { animation-delay: 6s; }
+
+.term-time { color: #555; margin-right: 8px; }
+.term-info { color: var(--cyan); font-weight: 600; margin-right: 4px; }
+.term-success { color: var(--accent-emerald); font-weight: 600; margin-right: 4px; }
+.term-wait { color: var(--text-muted); }
+.term-cursor {
+  display: inline-block;
+  width: 6px;
+  height: 12px;
+  background: var(--text-primary);
+  margin-left: 4px;
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes term-seq {
+  0% { opacity: 0; }
+  2%, 90% { opacity: 1; }
+  95%, 100% { opacity: 0; }
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* 3. Chatbots Mockup (WhatsApp Style) */
+.saas-mockup__header--whatsapp {
+  background: #075E54;
+  border-bottom: none;
+  justify-content: space-between;
+}
+.wa-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.wa-avatar img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.wa-info {
+  display: flex;
+  flex-direction: column;
+}
+.wa-name {
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.1;
+}
+.wa-status {
+  color: rgba(255,255,255,0.8);
+  font-size: 0.65rem;
+}
+.wa-header-right svg {
+  width: 18px;
+  height: 18px;
+  stroke: #fff;
+}
+
+.saas-mockup__body--chat {
+  background: #0b141a url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+  background-size: cover;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.mockup-chat {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.mockup-msg {
+  max-width: 85%;
+  padding: 8px 12px 20px 12px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  position: relative;
+  color: #e9edef;
+  line-height: 1.4;
+  box-shadow: 0 1px 0.5px rgba(0,0,0,0.13);
+  opacity: 0;
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+}
+
+.mockup-msg:nth-child(1) { animation-name: msg-seq-1; }
+.mockup-msg:nth-child(2) { animation-name: msg-seq-2; }
+.mockup-msg--typing { animation-name: msg-seq-typing; }
+.mockup-msg--final { animation-name: msg-seq-final; }
+
+.mockup-msg--left {
+  align-self: flex-start;
+  background: #202c33;
+  border-top-left-radius: 0;
+}
+.mockup-msg--left::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -8px;
+  width: 0; height: 0;
+  border-top: 10px solid #202c33;
+  border-left: 10px solid transparent;
+}
+
+.mockup-msg--right {
+  align-self: flex-end;
+  background: #005c4b;
+  border-top-right-radius: 0;
+}
+.mockup-msg--right::before {
+  content: '';
+  position: absolute;
+  top: 0; right: -8px;
+  width: 0; height: 0;
+  border-top: 10px solid #005c4b;
+  border-right: 10px solid transparent;
+}
+
+.wa-options {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.wa-option {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  padding: 6px;
+  font-weight: 500;
+  color: var(--cyan);
+}
+
+.msg-time {
+  position: absolute;
+  bottom: 4px;
+  right: 8px;
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.6);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.msg-check {
+  width: 12px;
+  height: 12px;
+  color: #53bdeb;
+}
+
+.mockup-msg--typing {
+  padding: 12px 16px;
+}
+.mockup-msg--typing .msg-time { display: none; }
+
+@keyframes msg-seq-1 {
+  0%, 5% { opacity: 0; transform: translateY(10px); }
+  8%, 95% { opacity: 1; transform: translateY(0); }
+  98%, 100% { opacity: 0; transform: translateY(-10px); }
+}
+@keyframes msg-seq-2 {
+  0%, 25% { opacity: 0; transform: translateY(10px); }
+  28%, 95% { opacity: 1; transform: translateY(0); }
+  98%, 100% { opacity: 0; transform: translateY(-10px); }
+}
+@keyframes msg-seq-typing {
+  0%, 40% { opacity: 0; transform: translateY(10px); display: block; position: relative; }
+  43%, 65% { opacity: 1; transform: translateY(0); display: block; position: relative; }
+  66%, 100% { opacity: 0; position: absolute; pointer-events: none; transform: scale(0); }
+}
+@keyframes msg-seq-final {
+  0%, 65% { opacity: 0; transform: translateY(10px); }
+  68%, 95% { opacity: 1; transform: translateY(0); }
+  98%, 100% { opacity: 0; transform: translateY(-10px); }
+}
+
+.mockup-typing {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.mockup-typing span {
+  width: 5px;
+  height: 5px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 50%;
+  animation: bounce-typing 1.4s infinite;
+}
+.mockup-typing span:nth-child(2) { animation-delay: 0.2s; }
+.mockup-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounce-typing {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* 4. Llamadas Mockup */
+.saas-mockup__body--call {
+  background: linear-gradient(180deg, rgba(5,10,21,1) 0%, rgba(13,22,48,1) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.mockup-call {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.mockup-call-visualizer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding-bottom: 10px;
+}
+
 .mockup-avatar {
-  width: 50px;
-  height: 50px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--blue-deep), var(--cyan));
   display: flex;
@@ -2156,20 +2361,25 @@ body {
   justify-content: center;
   position: relative;
 }
-.mockup-avatar::after {
+.mockup-avatar--pulse::before, .mockup-avatar--pulse::after {
   content: '';
   position: absolute;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0; right: 0; bottom: 0;
   border-radius: 50%;
-  border: 2px solid var(--cyan);
-  animation: avatar-ripple 2s infinite;
+  border: 1px solid var(--cyan);
+  animation: call-ripple 2s infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
+.mockup-avatar--pulse::after {
+  animation-delay: 1s;
+}
+
 .mockup-avatar svg {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   stroke: #fff;
+  z-index: 2;
 }
+
 .mockup-waves {
   display: flex;
   align-items: center;
@@ -2180,20 +2390,94 @@ body {
   width: 4px;
   background: var(--cyan);
   border-radius: 2px;
-  animation: wave-bounce 1s infinite alternate;
+  height: 4px;
 }
-.mockup-wave:nth-child(1) { height: 10px; animation-delay: 0.1s; }
-.mockup-wave:nth-child(2) { height: 20px; animation-delay: 0.3s; }
-.mockup-wave:nth-child(3) { height: 30px; animation-delay: 0.5s; }
-.mockup-wave:nth-child(4) { height: 15px; animation-delay: 0.2s; }
-.mockup-wave:nth-child(5) { height: 25px; animation-delay: 0.4s; }
-@keyframes avatar-ripple {
-  0% { transform: scale(1); opacity: 1; }
-  100% { transform: scale(1.5); opacity: 0; }
+.mockup-waves--active .mockup-wave {
+  animation: voice-wave 1.2s infinite alternate ease-in-out;
 }
-@keyframes wave-bounce {
-  0% { transform: scaleY(0.5); }
-  100% { transform: scaleY(1); }
+.mockup-waves--active .mockup-wave:nth-child(1) { animation-delay: 0.1s; }
+.mockup-waves--active .mockup-wave:nth-child(2) { animation-delay: 0.4s; }
+.mockup-waves--active .mockup-wave:nth-child(3) { animation-delay: 0.2s; }
+.mockup-waves--active .mockup-wave:nth-child(4) { animation-delay: 0.7s; }
+.mockup-waves--active .mockup-wave:nth-child(5) { animation-delay: 0.3s; }
+.mockup-waves--active .mockup-wave:nth-child(6) { animation-delay: 0.6s; }
+.mockup-waves--active .mockup-wave:nth-child(7) { animation-delay: 0.2s; }
+.mockup-waves--active .mockup-wave:nth-child(8) { animation-delay: 0.5s; }
+.mockup-waves--active .mockup-wave:nth-child(9) { animation-delay: 0.1s; }
+
+.mockup-call-transcript {
+  height: 70px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.transcript-line {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  line-height: 1.3;
+  position: absolute;
+  bottom: 12px;
+  left: 16px;
+  right: 16px;
+  background: var(--bg-primary);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.transcript-line:nth-child(1) { animation: line-seq-1 9s infinite; }
+.transcript-line:nth-child(2) { animation: line-seq-2 9s infinite; }
+.transcript-line:nth-child(3) { animation: line-seq-3 9s infinite; }
+
+.transcript-speaker {
+  font-weight: 700;
+}
+.transcript-line--ai .transcript-speaker { color: var(--cyan); }
+.transcript-line--user .transcript-speaker { color: var(--accent-violet); }
+
+.transcript-line--typing .typing-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--cyan);
+  animation: type-text 3s steps(40, end) infinite, blink-caret 0.75s step-end infinite;
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+@keyframes call-ripple {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(2); opacity: 0; }
+}
+@keyframes voice-wave {
+  0% { height: 4px; }
+  100% { height: 28px; }
+}
+@keyframes line-seq-1 {
+  0%, 30% { opacity: 1; z-index: 2; }
+  31%, 100% { opacity: 0; z-index: 0; }
+}
+@keyframes line-seq-2 {
+  0%, 31% { opacity: 0; z-index: 0; }
+  32%, 55% { opacity: 1; z-index: 2; }
+  56%, 100% { opacity: 0; z-index: 0; }
+}
+@keyframes line-seq-3 {
+  0%, 56% { opacity: 0; z-index: 0; }
+  57%, 95% { opacity: 1; z-index: 2; }
+  96%, 100% { opacity: 0; z-index: 0; }
+}
+@keyframes type-text {
+  from { width: 0 }
+  to { width: 100% }
+}
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--cyan); }
 }
 
 /* ---- Scrollbar ---- */
