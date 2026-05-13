@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ============================================
   // FORM HANDLING
   // ============================================
-  const contactForm = document.getElementById('contactForm');
+  //const contactForm = document.getElementById('contactForm');
 
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
@@ -431,4 +431,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-});
+
+})
